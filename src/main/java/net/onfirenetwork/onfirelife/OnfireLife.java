@@ -6,6 +6,8 @@ import net.onfirenetwork.onfirelife.listener.PlayerListener;
 import net.onfirenetwork.onfirelife.model.Model;
 import net.onfirenetwork.onsetjava.Onset;
 import net.onfirenetwork.onsetjava.plugin.Plugin;
+import net.onfirenetwork.onsetjava.plugin.event.EventHandler;
+import net.onfirenetwork.onsetjava.plugin.event.player.PlayerRemoteEvent;
 import org.javawebstack.orm.ORM;
 import org.javawebstack.orm.ORMConfig;
 import org.javawebstack.orm.exception.ORMConfigurationException;

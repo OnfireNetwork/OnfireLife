@@ -17,7 +17,8 @@ Vue.config.productionTip = false
 Vue.mixin({
   data() {
     return {
-      bus: bus
+      bus: bus,
+      console
     }
   }
 })

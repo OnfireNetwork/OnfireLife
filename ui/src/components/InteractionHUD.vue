@@ -14,7 +14,7 @@ export default {
   name: 'CharacterHUD',
   data() {
     return {
-      visible: true,
+      visible: false,
       mousePos: {
         x: 0,
         y: 0

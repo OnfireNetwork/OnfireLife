@@ -4,6 +4,7 @@
       <CharacterHUD />
       <InteractionHUD />
       <VehicleHUD />
+      <Inventory />
     </v-app>
   </div>
 </template>
@@ -12,13 +13,15 @@
 import CharacterHUD from './components/CharacterHUD.vue'
 import InteractionHUD from './components/InteractionHUD.vue'
 import VehicleHUD from './components/VehicleHUD.vue'
+import Inventory from './components/Inventory.vue'
 
 export default {
   name: 'App',
   components: {
     CharacterHUD,
     InteractionHUD,
-    VehicleHUD
+    VehicleHUD,
+    Inventory
   },
   data() {
     return {
