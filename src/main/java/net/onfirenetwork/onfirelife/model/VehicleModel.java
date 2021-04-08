@@ -1,6 +1,5 @@
 package net.onfirenetwork.onfirelife.model;
 
-import net.onfirenetwork.onfirelife.VehicleModel;
 import org.javawebstack.orm.annotation.*;
 
 import java.sql.Timestamp;

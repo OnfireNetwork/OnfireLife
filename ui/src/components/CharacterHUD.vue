@@ -18,6 +18,12 @@
 <script>
 export default {
   name: 'CharacterHUD',
+  props: {
+    test: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       visible: true,

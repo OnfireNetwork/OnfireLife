@@ -10,13 +10,17 @@
         <v-icon v-if="icon" class="centered" style=" color: rgba(50, 50, 50, 0.5)" x-large>mdi-{{ icon }}</v-icon>
         <img v-if="item" class="centered" :src="getItemImage(item.type)" width="50" height="50">
         <div class="amount" v-if="item">{{ item.amount || 1 }}</div>
-        <div class="popover" v-if="popover && item" :style="{ left: (popover.x + 25) + 'px', top: (popover.y - 5) + 'px' }">{{ item.name }}</div>
+        <div class="popover" v-if="popover && item" :style="{ left: (popover.x + 25) + 'px', top: (popover.y - 5) + 'px' }">{{ item.metadata.name || materials[item.type].name }}</div>
     </div>
 </template>
 
 <script>
 export default {
     props: {
+        materials: {
+            type: Object,
+            required: true
+        },
         icon: {
             type: String,
             required: false
@@ -34,7 +38,7 @@ export default {
     methods: {
         getItemImage(item) {
             const items = require.context('../assets/img/items/', false, /\.png$/)
-            return items('./' + item + ".png")
+            return items('./' + item.toLowerCase() + ".png")
         }
     }
 }

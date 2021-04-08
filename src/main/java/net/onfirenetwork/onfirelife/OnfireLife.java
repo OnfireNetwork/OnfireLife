@@ -6,11 +6,10 @@ import net.onfirenetwork.onfirelife.listener.PlayerListener;
 import net.onfirenetwork.onfirelife.model.Model;
 import net.onfirenetwork.onsetjava.Onset;
 import net.onfirenetwork.onsetjava.plugin.Plugin;
-import net.onfirenetwork.onsetjava.plugin.event.EventHandler;
-import net.onfirenetwork.onsetjava.plugin.event.player.PlayerRemoteEvent;
 import org.javawebstack.orm.ORM;
 import org.javawebstack.orm.ORMConfig;
 import org.javawebstack.orm.exception.ORMConfigurationException;
+import org.javawebstack.orm.mapper.AbstractDataTypeMapper;
 import org.javawebstack.orm.wrapper.SQL;
 
 import java.io.File;
@@ -35,6 +34,7 @@ public class OnfireLife {
     private void setupDatabase() {
         SQL sql = config.getDatabase().connect();
         ORMConfig ormConfig = new ORMConfig()
+                .addTypeMapper(new AbstractDataTypeMapper())
                 .setDefaultSize(255);
         try {
             ORM.register(Model.class.getPackage(), sql, ormConfig);

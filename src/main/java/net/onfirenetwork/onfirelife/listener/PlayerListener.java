@@ -10,14 +10,14 @@ public class PlayerListener {
 
     @EventHandler
     public void onSteamAuth(PlayerSteamAuthEvent e) {
-        PlayerModel playerModel = Repo.get(PlayerModel.class).where("steamId", e.getPlayer().getSteamId()).get();
+        PlayerModel playerModel = Repo.get(PlayerModel.class).where("steamId", e.getPlayer().getSteamId()).first();
         if(playerModel == null) {
             playerModel = new PlayerModel();
             playerModel.setSteamId(e.getPlayer().getSteamId());
         }
         playerModel.setUsername(e.getPlayer().getName());
         playerModel.save();
-        BanModel ban = Repo.get(BanModel.class).where("playerId", playerModel.getId()).get();
+        BanModel ban = Repo.get(BanModel.class).where("playerId", playerModel.getId()).first();
         if(ban != null) {
             e.getPlayer().kick("You are banned: " + ban.getReason());
             return;
